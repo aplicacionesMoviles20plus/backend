@@ -32,7 +32,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/profesor_zona/5
-        [ResponseType(typeof(profesor_zona))]
+        [ResponseType(typeof(profesor_zonaApp))]
         public IHttpActionResult Getprofesor_zona(int id)
         {
             var profesor_zona = from i in db.profesor_zona

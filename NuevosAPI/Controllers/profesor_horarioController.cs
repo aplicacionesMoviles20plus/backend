@@ -33,7 +33,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/profesor_horario/5
-        [ResponseType(typeof(profesor_horario))]
+        [ResponseType(typeof(profesor_horarioApp))]
         public IHttpActionResult Getprofesor_horario(int id)
         {
             var profesor_horario = from i in db.profesor_horario

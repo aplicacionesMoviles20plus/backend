@@ -32,7 +32,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/suscripcions/5
-        [ResponseType(typeof(suscripcion))]
+        [ResponseType(typeof(suscripcionApp))]
         public IHttpActionResult Getsuscripcion(int id)
         {
             var suscripcon = from i in db.suscripcions

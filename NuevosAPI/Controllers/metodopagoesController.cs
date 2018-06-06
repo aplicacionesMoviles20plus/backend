@@ -34,7 +34,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/metodopagoes/5
-        [ResponseType(typeof(metodopago))]
+        [ResponseType(typeof(metodopagoApp))]
         public IHttpActionResult Getmetodopago(int id)
         {
             var mp = from i in db.metodopagoes

@@ -34,7 +34,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/cursogradoes/5
-        [ResponseType(typeof(cursogrado))]
+        [ResponseType(typeof(cursogradoApp))]
         public IHttpActionResult Getcursogrado(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;

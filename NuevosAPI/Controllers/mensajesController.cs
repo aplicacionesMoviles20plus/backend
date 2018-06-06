@@ -35,7 +35,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/mensajes/5
-        [ResponseType(typeof(mensaje))]
+        [ResponseType(typeof(mensajeApp))]
         public IHttpActionResult Getmensaje(int id)
         {
             var mensaje = from i in db.mensajes

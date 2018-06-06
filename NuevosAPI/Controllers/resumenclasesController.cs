@@ -32,7 +32,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/resumenclases/5
-        [ResponseType(typeof(resumenclase))]
+        [ResponseType(typeof(resumenclaseApp))]
         public IHttpActionResult Getresumenclase(int id)
         {
             var avanceCurrentUser = from i in db.resumenclases

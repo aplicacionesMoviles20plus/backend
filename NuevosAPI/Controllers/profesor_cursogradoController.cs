@@ -32,7 +32,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/profesor_cursogrado/5
-        [ResponseType(typeof(profesor_cursogrado))]
+        [ResponseType(typeof(profesor_cursogradoApp))]
         public IHttpActionResult Getprofesor_cursogrado(int id)
         {
             var profesor_curso = from i in db.profesor_cursogrado

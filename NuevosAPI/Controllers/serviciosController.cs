@@ -31,7 +31,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/servicios/5
-        [ResponseType(typeof(servicio))]
+        [ResponseType(typeof(servicioApp))]
         public IHttpActionResult Getservicio(int id)
         {
             var servicioactual = from i in db.servicios

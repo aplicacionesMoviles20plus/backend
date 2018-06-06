@@ -41,7 +41,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/tutorias/5
-        [ResponseType(typeof(tutoria))]
+        [ResponseType(typeof(tutoriaApp))]
         public IHttpActionResult Gettutoria(int id)
         {
             var tutoria = from i in db.tutorias

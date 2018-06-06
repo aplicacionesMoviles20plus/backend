@@ -31,7 +31,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/profesorfavoritoes/5
-        [ResponseType(typeof(profesorfavorito))]
+        [ResponseType(typeof(profesorfavoritoApp))]
         public IHttpActionResult Getprofesorfavorito(int id)
         {
             var profesorfavoritoes = from i in db.profesorfavoritoes

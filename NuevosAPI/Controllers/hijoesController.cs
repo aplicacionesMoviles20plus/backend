@@ -33,7 +33,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/hijoes/5
-        [ResponseType(typeof(hijo))]
+        [ResponseType(typeof(hijoApp))]
         public IHttpActionResult Gethijo(int id)
         {
             var hijo = from i in db.hijoes

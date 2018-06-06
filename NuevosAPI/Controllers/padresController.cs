@@ -40,7 +40,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/padres/5
-        [ResponseType(typeof(padre))]
+        [ResponseType(typeof(padreApp))]
         public IHttpActionResult Getpadre(int id)
         {
             var padre = from i in db.padres
@@ -66,7 +66,32 @@ namespace NuevosAPI.Controllers
             }
             return Ok(padre.ToList());
         }
-
+        [ResponseType(typeof(padreApp))]
+        public IHttpActionResult Getpadre(string email)
+        {
+            var padre = from i in db.padres
+                        where i.email == email
+                        select new padreApp
+                        {
+                            idpadre = i.idpadre,
+                            nombre = i.nombre,
+                            apellido = i.apellido,
+                            password = i.password,
+                            departamento = i.departamento,
+                            email = i.email,
+                            provincia = i.provincia,
+                            distrito = i.distrito,
+                            direccion = i.direccion,
+                            celular = i.celular,
+                            dni = i.dni,
+                            fotourl = i.fotourl
+                        };
+            if (padre == null)
+            {
+                return NotFound();
+            }
+            return Ok(padre.ToList());
+        }
         // PUT: api/padres/5
         [ResponseType(typeof(void))]
         public IHttpActionResult Putpadre(int id, padre padre)

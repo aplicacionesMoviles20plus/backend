@@ -29,7 +29,7 @@ namespace NuevosAPI.Controllers
         }
 
         // GET: api/zonas/5
-        [ResponseType(typeof(zona))]
+        [ResponseType(typeof(zonaApp))]
         public IHttpActionResult Getzona(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
