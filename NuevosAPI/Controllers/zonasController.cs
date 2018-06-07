@@ -20,14 +20,16 @@ namespace NuevosAPI.Controllers
         public IEnumerable<zonaApp> Getzonas()
         {
             IEnumerable<zonaApp> zonas = from c in db.zonas
-                                        select new zonaApp
-                                        {
-                                            idzona = c.idzona,
-                                            zona1 = c.zona1
-                                        };
+                                         select new zonaApp
+                                         {
+                                             idzona = c.idzona,
+                                             zona1 = c.zona1
+                                         };
             return zonas;
-        }
+            
+            //return Json(zonas.List());
 
+        }
         // GET: api/zonas/5
         [ResponseType(typeof(zonaApp))]
         public IHttpActionResult Getzona(int id)
