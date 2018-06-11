@@ -135,10 +135,15 @@ namespace NuevosAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.padres.Add(padre);
-            db.SaveChanges();
-
+            if (padreExists(padre.idpadre))
+            {
+                db.Entry(padre).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else {
+                db.padres.Add(padre);
+                db.SaveChanges();
+            }
             return CreatedAtRoute("DefaultApi", new { id = padre.idpadre }, padre);
         }
 

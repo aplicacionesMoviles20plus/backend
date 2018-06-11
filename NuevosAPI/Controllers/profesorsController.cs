@@ -229,10 +229,16 @@ namespace NuevosAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.profesors.Add(profesor);
-            db.SaveChanges();
-
+            if (profesorExists(profesor.idprofesor))
+            {
+                db.Entry(profesor).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                db.profesors.Add(profesor);
+                db.SaveChanges();
+            }
             return CreatedAtRoute("DefaultApi", new { id = profesor.idprofesor }, profesor);
         }
 
