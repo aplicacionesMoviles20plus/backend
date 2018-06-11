@@ -42,6 +42,87 @@ namespace NuevosAPI.Controllers
             return lista;
         }
 
+        // GET: api/profesors
+        public IEnumerable<profesorApp> Getprofesors(int iduser)
+        {
+            IEnumerable<profesorApp> lista = from i in db.profesors
+                                             where ( i.idprofesor != iduser && i.experiencia != "")
+                                             select new profesorApp
+                                             {
+                                                 idprofesor = i.idprofesor,
+                                                 nombre = i.nombre,
+                                                 apellido = i.apellido,
+                                                 password = i.password,
+                                                 email = i.email,
+                                                 celular = i.celular,
+                                                 descripcion = i.descripcion,
+                                                 preciomax = i.preciomax,
+                                                 preciomin = i.preciomin,
+                                                 experiencia = i.experiencia,
+                                                 calificacion = i.calificacion,
+                                                 dni = i.dni,
+                                                 antecedentes = i.antecedentes,
+                                                 fotourl = i.fotourl,
+                                                 id_metodopago = i.id_metodopago
+                                             };
+            return lista;
+        }
+        // GET: Profesores By Zona
+        public IEnumerable<profesorApp> Getprofesors2(int idzona,int iduser)
+        {
+       
+            IEnumerable<profesorApp> lista = from i in db.profesors
+                                             join z in db.profesor_zona on i.idprofesor equals z.id_profe
+                                             where (z.id_zona==idzona && i.idprofesor != iduser && i.experiencia != "")
+                                             select new profesorApp
+                                             {
+                                                 idprofesor = i.idprofesor,
+                                                 nombre = i.nombre,
+                                                 apellido = i.apellido,
+                                                 password = i.password,
+                                                 email = i.email,
+                                                 celular = i.celular,
+                                                 descripcion = i.descripcion,
+                                                 preciomax = i.preciomax,
+                                                 preciomin = i.preciomin,
+                                                 experiencia = i.experiencia,
+                                                 calificacion = i.calificacion,
+                                                 dni = i.dni,
+                                                 antecedentes = i.antecedentes,
+                                                 fotourl = i.fotourl,
+                                                 id_metodopago = i.id_metodopago
+                                             };
+           
+            return lista;
+        }
+        // GET: Profesores By Zona
+        public IEnumerable<profesorApp> Getprofesors3(int idcurso,int iduser)
+        {
+
+            IEnumerable<profesorApp> lista = from i in db.profesors
+                                             join z in db.profesor_cursogrado on i.idprofesor equals z.id_profesor
+                                             where (z.id_cursogrado == idcurso && i.idprofesor != iduser && i.experiencia != "")
+                                             select new profesorApp
+                                             {
+                                                 idprofesor = i.idprofesor,
+                                                 nombre = i.nombre,
+                                                 apellido = i.apellido,
+                                                 password = i.password,
+                                                 email = i.email,
+                                                 celular = i.celular,
+                                                 descripcion = i.descripcion,
+                                                 preciomax = i.preciomax,
+                                                 preciomin = i.preciomin,
+                                                 experiencia = i.experiencia,
+                                                 calificacion = i.calificacion,
+                                                 dni = i.dni,
+                                                 antecedentes = i.antecedentes,
+                                                 fotourl = i.fotourl,
+                                                 id_metodopago = i.id_metodopago
+                                             };
+
+            return lista;
+        }
         // GET: api/profesors/5
         [ResponseType(typeof(profesorApp))]
         public IHttpActionResult Getprofesor(int id)
