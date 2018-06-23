@@ -30,6 +30,20 @@ namespace NuevosAPI.Controllers
             //return Json(zonas.List());
 
         }
+        public IEnumerable<zonaApp> Getzonas2(int idprofe)
+        {
+
+            IEnumerable<zonaApp> lista = from i in db.zonas
+                                            join z in db.profesor_zona on i.idzona equals z.id_zona
+                                            where (z.id_profe == idprofe)
+                                            select new zonaApp
+                                            {
+                                                idzona = i.idzona,
+                                                zona1 = i.zona1
+                                            };
+
+            return lista;
+        }
         // GET: api/zonas/5
         [ResponseType(typeof(zonaApp))]
         public IHttpActionResult Getzona(int id)

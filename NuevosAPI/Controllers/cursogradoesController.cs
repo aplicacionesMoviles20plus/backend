@@ -32,7 +32,22 @@ namespace NuevosAPI.Controllers
                                           };
             return lista;
         }
+        public IEnumerable<cursogradoApp> Getcursogradoes2(int idprofe)
+        {
 
+            IEnumerable<cursogradoApp> lista = from i in db.cursogradoes
+                                             join z in db.profesor_cursogrado on i.idcursogrado equals z.id_cursogrado
+                                             where (z.id_profesor == idprofe)
+                                             select new cursogradoApp
+                                             {
+                                                 idcursogrado = i.idcursogrado,
+                                                 nombre = i.nombre,
+                                                 contenido = i.contenido,
+                                                 grado = i.grado
+                                             };
+
+            return lista;
+        }
         // GET: api/cursogradoes/5
         [ResponseType(typeof(cursogradoApp))]
         public IHttpActionResult Getcursogrado(int id)
