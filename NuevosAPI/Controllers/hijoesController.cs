@@ -31,7 +31,20 @@ namespace NuevosAPI.Controllers
                                             };
             return lista;
         }
-
+        public IEnumerable<hijoApp> Gethijoes(int idpadre)
+        {
+            IEnumerable<hijoApp> lista = from i in db.hijoes
+                                         where i.id_padre == idpadre
+                                         select new hijoApp
+                                         {
+                                             idhijo = i.idhijo,
+                                             id_padre = i.id_padre,
+                                             id_tutoria = i.id_tutoria,
+                                             nombre = i.nombre,
+                                             descripcion = i.descripcion
+                                         };
+            return lista;
+        }
         // GET: api/hijoes/5
         [ResponseType(typeof(hijoApp))]
         public IHttpActionResult Gethijo(int id)
@@ -96,10 +109,16 @@ namespace NuevosAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.hijoes.Add(hijo);
-            db.SaveChanges();
-
+            if (hijoExists(hijo.idhijo))
+            {
+                db.Entry(hijo).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                db.hijoes.Add(hijo);
+                db.SaveChanges();
+            } 
             return CreatedAtRoute("DefaultApi", new { id = hijo.idhijo }, hijo);
         }
 

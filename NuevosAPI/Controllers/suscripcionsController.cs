@@ -30,7 +30,19 @@ namespace NuevosAPI.Controllers
                                                 };
             return lista;
         }
-
+        public IEnumerable<suscripcionApp> Getsuscripcions(int idprofesor)
+        {
+            IEnumerable<suscripcionApp> lista = from i in db.suscripcions
+                                                where i.id_profesor==idprofesor
+                                                select new suscripcionApp
+                                                {
+                                                    idsuscripcion = i.idsuscripcion,
+                                                    fechainicio = i.fechainicio,
+                                                    fechafin = i.fechafin,
+                                                    id_profesor = i.id_profesor
+                                                };
+            return lista;
+        }
         // GET: api/suscripcions/5
         [ResponseType(typeof(suscripcionApp))]
         public IHttpActionResult Getsuscripcion(int id)

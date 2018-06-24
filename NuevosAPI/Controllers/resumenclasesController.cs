@@ -30,7 +30,19 @@ namespace NuevosAPI.Controllers
                                            };
             return lista;
         }
-
+        public IEnumerable<resumenclaseApp> Getresumenclases(int idtutoria)
+        {
+            IEnumerable<resumenclaseApp> lista = from i in db.resumenclases
+                                                 where i.id_tutoria==idtutoria
+                                                 select new resumenclaseApp
+                                                 {
+                                                     idresumen = i.idresumen,
+                                                     id_tutoria = i.id_tutoria,
+                                                     descripcion = i.descripcion,
+                                                     fecha = i.fecha
+                                                 };
+            return lista;
+        }
         // GET: api/resumenclases/5
         [ResponseType(typeof(resumenclaseApp))]
         public IHttpActionResult Getresumenclase(int id)

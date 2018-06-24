@@ -33,7 +33,22 @@ namespace NuevosAPI.Controllers
                                             };
             return lista;
         }
-
+        public IEnumerable<mensajeApp> Getmensajes(int idpadre, int idprofe)
+        {
+            IEnumerable<mensajeApp> lista = from i in db.mensajes
+                                            where i.id_padre==idpadre && i.id_profe==idprofe
+                                            select new mensajeApp
+                                            {
+                                                idmensaje = i.idmensaje,
+                                                hora = i.hora,
+                                                fecha = i.fecha,
+                                                id_padre = i.id_padre,
+                                                id_profe = i.id_profe,
+                                                remitente = i.remitente,
+                                                contenido = i.contenido
+                                            };
+            return lista;
+        }
         // GET: api/mensajes/5
         [ResponseType(typeof(mensajeApp))]
         public IHttpActionResult Getmensaje(int id)

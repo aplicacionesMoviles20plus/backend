@@ -29,7 +29,7 @@ namespace NuevosAPI.Controllers
                                                      };
             return lista;
         }
-
+      
         // GET: api/profesorfavoritoes/5
         [ResponseType(typeof(profesorfavoritoApp))]
         public IHttpActionResult Getprofesorfavorito(int id)

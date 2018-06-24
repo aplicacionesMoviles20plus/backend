@@ -39,7 +39,28 @@ namespace NuevosAPI.Controllers
                                             };
             return lista;
         }
+        public IEnumerable<tutoriaApp> Gettutorias(int idpadre)
+        {
 
+            IEnumerable<tutoriaApp> lista = from i in db.tutorias
+                                            where i.id_padre==idpadre
+                                            select new tutoriaApp
+                                            {
+                                                idtutoria = i.idtutoria,
+                                                id_padre = i.id_padre,
+                                                id_servicio = i.id_servicio,
+                                                id_horario = i.id_horario,
+                                                hora = i.hora,
+                                                fecha = i.fecha,
+                                                precio = i.precio,
+                                                comentario = i.comentario,
+                                                calificacion = i.calificacion,
+                                                estado = i.estado,
+                                                curso = i.curso,
+                                                numerohoras = i.numerohoras
+                                            };
+            return lista;
+        }
         // GET: api/tutorias/5
         [ResponseType(typeof(tutoriaApp))]
         public IHttpActionResult Gettutoria(int id)
@@ -111,10 +132,16 @@ namespace NuevosAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
-
-            db.tutorias.Add(tutoria);
-            db.SaveChanges();
-
+            if (tutoriaExists(tutoria.idtutoria))
+            {
+                db.Entry(tutoria).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+            else
+            {
+                db.tutorias.Add(tutoria);
+                db.SaveChanges();
+            }
             return CreatedAtRoute("DefaultApi", new { id = tutoria.idtutoria }, tutoria);
         }
 
