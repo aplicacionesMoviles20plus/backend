@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TrabajoMovilesModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="TrabajoMovilesEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cursogradoes" EntityType="TrabajoMovilesModel.cursogrado" />
+    <EntitySet Name="hijoes" EntityType="TrabajoMovilesModel.hijo" />
+    <EntitySet Name="horarios" EntityType="TrabajoMovilesModel.horario" />
+    <EntitySet Name="mensajes" EntityType="TrabajoMovilesModel.mensaje" />
+    <EntitySet Name="metodopagoes" EntityType="TrabajoMovilesModel.metodopago" />
+    <EntitySet Name="padres" EntityType="TrabajoMovilesModel.padre" />
+    <EntitySet Name="profesors" EntityType="TrabajoMovilesModel.profesor" />
+    <EntitySet Name="profesor_cursogrado" EntityType="TrabajoMovilesModel.profesor_cursogrado" />
+    <EntitySet Name="profesor_horario" EntityType="TrabajoMovilesModel.profesor_horario" />
+    <EntitySet Name="profesor_zona" EntityType="TrabajoMovilesModel.profesor_zona" />
+    <EntitySet Name="profesorfavoritoes" EntityType="TrabajoMovilesModel.profesorfavorito" />
+    <EntitySet Name="resumenclases" EntityType="TrabajoMovilesModel.resumenclase" />
+    <EntitySet Name="servicios" EntityType="TrabajoMovilesModel.servicio" />
+    <EntitySet Name="suscripcions" EntityType="TrabajoMovilesModel.suscripcion" />
+    <EntitySet Name="sysdiagrams" EntityType="TrabajoMovilesModel.sysdiagram" />
+    <EntitySet Name="tutorias" EntityType="TrabajoMovilesModel.tutoria" />
+    <EntitySet Name="zonas" EntityType="TrabajoMovilesModel.zona" />
+    <AssociationSet Name="profesor_curso_FK_Curso" Association="TrabajoMovilesModel.profesor_curso_FK_Curso">
+      <End Role="cursogrado" EntitySet="cursogradoes" />
+      <End Role="profesor_cursogrado" EntitySet="profesor_cursogrado" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hijo_padre" Association="TrabajoMovilesModel.FK_hijo_padre">
+      <End Role="padre" EntitySet="padres" />
+      <End Role="hijo" EntitySet="hijoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_hijo_tutoria" Association="TrabajoMovilesModel.FK_hijo_tutoria">
+      <End Role="tutoria" EntitySet="tutorias" />
+      <End Role="hijo" EntitySet="hijoes" />
+    </AssociationSet>
+    <AssociationSet Name="profesor_horario_FK_Horario" Association="TrabajoMovilesModel.profesor_horario_FK_Horario">
+      <End Role="horario" EntitySet="horarios" />
+      <End Role="profesor_horario" EntitySet="profesor_horario" />
+    </AssociationSet>
+    <AssociationSet Name="mensaje_FK_Mensaje_Padre" Association="TrabajoMovilesModel.mensaje_FK_Mensaje_Padre">
+      <End Role="padre" EntitySet="padres" />
+      <End Role="mensaje" EntitySet="mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="mensaje_FK_Mensaje_Profe" Association="TrabajoMovilesModel.mensaje_FK_Mensaje_Profe">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="mensaje" EntitySet="mensajes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_profesor_metodopago" Association="TrabajoMovilesModel.FK_profesor_metodopago">
+      <End Role="metodopago" EntitySet="metodopagoes" />
+      <End Role="profesor" EntitySet="profesors" />
+    </AssociationSet>
+    <AssociationSet Name="profesorfavorito_FK_ProfeFav_Padre" Association="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Padre">
+      <End Role="padre" EntitySet="padres" />
+      <End Role="profesorfavorito" EntitySet="profesorfavoritoes" />
+    </AssociationSet>
+    <AssociationSet Name="tutoria_FK_Tutoria_Padre" Association="TrabajoMovilesModel.tutoria_FK_Tutoria_Padre">
+      <End Role="padre" EntitySet="padres" />
+      <End Role="tutoria" EntitySet="tutorias" />
+    </AssociationSet>
+    <AssociationSet Name="profesor_curso_FK_PRofesor" Association="TrabajoMovilesModel.profesor_curso_FK_PRofesor">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="profesor_cursogrado" EntitySet="profesor_cursogrado" />
+    </AssociationSet>
+    <AssociationSet Name="profesor_horario_FK_Profes" Association="TrabajoMovilesModel.profesor_horario_FK_Profes">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="profesor_horario" EntitySet="profesor_horario" />
+    </AssociationSet>
+    <AssociationSet Name="profesor_zona_FK_Profesor_Zona" Association="TrabajoMovilesModel.profesor_zona_FK_Profesor_Zona">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="profesor_zona" EntitySet="profesor_zona" />
+    </AssociationSet>
+    <AssociationSet Name="profesorfavorito_FK_ProfeFav_Profe" Association="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Profe">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="profesorfavorito" EntitySet="profesorfavoritoes" />
+    </AssociationSet>
+    <AssociationSet Name="suscripcion_FK_Profe_Suscripcion" Association="TrabajoMovilesModel.suscripcion_FK_Profe_Suscripcion">
+      <End Role="profesor" EntitySet="profesors" />
+      <End Role="suscripcion" EntitySet="suscripcions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tutoria_profesor_horario" Association="TrabajoMovilesModel.FK_tutoria_profesor_horario">
+      <End Role="profesor_horario" EntitySet="profesor_horario" />
+      <End Role="tutoria" EntitySet="tutorias" />
+    </AssociationSet>
+    <AssociationSet Name="profesor_zona_FK_ZONA_Profesor" Association="TrabajoMovilesModel.profesor_zona_FK_ZONA_Profesor">
+      <End Role="zona" EntitySet="zonas" />
+      <End Role="profesor_zona" EntitySet="profesor_zona" />
+    </AssociationSet>
+    <AssociationSet Name="FK_resumenclase_tutoria" Association="TrabajoMovilesModel.FK_resumenclase_tutoria">
+      <End Role="tutoria" EntitySet="tutorias" />
+      <End Role="resumenclase" EntitySet="resumenclases" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tutoria_servicio" Association="TrabajoMovilesModel.FK_tutoria_servicio">
+      <End Role="servicio" EntitySet="servicios" />
+      <End Role="tutoria" EntitySet="tutorias" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TrabajoMovilesModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TrabajoMovilesModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <EntityType Name="cursogrado">
+    <Key>
+      <PropertyRef Name="idcursogrado" />
+    </Key>
+    <Property Name="idcursogrado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+    <Property Name="contenido" Type="String" MaxLength="65" Unicode="true" FixedLength="false" />
+    <Property Name="grado" Type="String" MaxLength="35" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="profesor_cursogrado" Relationship="TrabajoMovilesModel.profesor_curso_FK_Curso" FromRole="cursogrado" ToRole="profesor_cursogrado" />
+  </EntityType>
+  <EntityType Name="hijo">
+    <Key>
+      <PropertyRef Name="idhijo" />
+    </Key>
+    <Property Name="idhijo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_tutoria" Type="Int32" />
+    <Property Name="id_padre" Type="Int32" />
+    <Property Name="nombre" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="padre" Relationship="TrabajoMovilesModel.FK_hijo_padre" FromRole="hijo" ToRole="padre" />
+    <NavigationProperty Name="tutoria" Relationship="TrabajoMovilesModel.FK_hijo_tutoria" FromRole="hijo" ToRole="tutoria" />
+  </EntityType>
+  <EntityType Name="horario">
+    <Key>
+      <PropertyRef Name="idhorario" />
+    </Key>
+    <Property Name="idhorario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="horainicio" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+    <Property Name="horafin" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+    <Property Name="dia" Type="String" MaxLength="25" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="profesor_horario" Relationship="TrabajoMovilesModel.profesor_horario_FK_Horario" FromRole="horario" ToRole="profesor_horario" />
+  </EntityType>
+  <EntityType Name="mensaje">
+    <Key>
+      <PropertyRef Name="idmensaje" />
+    </Key>
+    <Property Name="idmensaje" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hora" Type="String" MaxLength="8000" Unicode="false" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="contenido" Type="String" MaxLength="120" Unicode="true" FixedLength="false" />
+    <Property Name="id_padre" Type="Int32" />
+    <Property Name="id_profe" Type="Int32" />
+    <Property Name="remitente" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="padre" Relationship="TrabajoMovilesModel.mensaje_FK_Mensaje_Padre" FromRole="mensaje" ToRole="padre" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.mensaje_FK_Mensaje_Profe" FromRole="mensaje" ToRole="profesor" />
+  </EntityType>
+  <EntityType Name="metodopago">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="numerotarjeta" Type="String" MaxLength="16" Unicode="false" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="cvv" Type="String" MaxLength="3" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="profesors" Relationship="TrabajoMovilesModel.FK_profesor_metodopago" FromRole="metodopago" ToRole="profesor" />
+  </EntityType>
+  <EntityType Name="padre">
+    <Key>
+      <PropertyRef Name="idpadre" />
+    </Key>
+    <Property Name="idpadre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="departamento" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+    <Property Name="provincia" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+    <Property Name="distrito" Type="String" MaxLength="35" Unicode="true" FixedLength="false" />
+    <Property Name="direccion" Type="String" MaxLength="70" Unicode="true" FixedLength="false" />
+    <Property Name="celular" Type="Int32" />
+    <Property Name="dni" Type="Int32" />
+    <Property Name="fotourl" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="hijoes" Relationship="TrabajoMovilesModel.FK_hijo_padre" FromRole="padre" ToRole="hijo" />
+    <NavigationProperty Name="mensajes" Relationship="TrabajoMovilesModel.mensaje_FK_Mensaje_Padre" FromRole="padre" ToRole="mensaje" />
+    <NavigationProperty Name="profesorfavoritoes" Relationship="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Padre" FromRole="padre" ToRole="profesorfavorito" />
+    <NavigationProperty Name="tutorias" Relationship="TrabajoMovilesModel.tutoria_FK_Tutoria_Padre" FromRole="padre" ToRole="tutoria" />
+  </EntityType>
+  <EntityType Name="profesor">
+    <Key>
+      <PropertyRef Name="idprofesor" />
+    </Key>
+    <Property Name="idprofesor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="password" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="email" Type="String" MaxLength="60" Unicode="true" FixedLength="false" />
+    <Property Name="celular" Type="String" MaxLength="45" Unicode="true" FixedLength="false" />
+    <Property Name="descripcion" Type="String" MaxLength="65" Unicode="true" FixedLength="false" />
+    <Property Name="preciomin" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="preciomax" Type="Decimal" Precision="4" Scale="2" />
+    <Property Name="experiencia" Type="String" MaxLength="65" Unicode="true" FixedLength="false" />
+    <Property Name="calificacion" Type="Int32" />
+    <Property Name="dni" Type="Int32" />
+    <Property Name="antecedentes" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+    <Property Name="fotourl" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="id_metodopago" Type="Int32" />
+    <NavigationProperty Name="mensajes" Relationship="TrabajoMovilesModel.mensaje_FK_Mensaje_Profe" FromRole="profesor" ToRole="mensaje" />
+    <NavigationProperty Name="metodopago" Relationship="TrabajoMovilesModel.FK_profesor_metodopago" FromRole="profesor" ToRole="metodopago" />
+    <NavigationProperty Name="profesor_cursogrado" Relationship="TrabajoMovilesModel.profesor_curso_FK_PRofesor" FromRole="profesor" ToRole="profesor_cursogrado" />
+    <NavigationProperty Name="profesor_horario" Relationship="TrabajoMovilesModel.profesor_horario_FK_Profes" FromRole="profesor" ToRole="profesor_horario" />
+    <NavigationProperty Name="profesor_zona" Relationship="TrabajoMovilesModel.profesor_zona_FK_Profesor_Zona" FromRole="profesor" ToRole="profesor_zona" />
+    <NavigationProperty Name="profesorfavoritoes" Relationship="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Profe" FromRole="profesor" ToRole="profesorfavorito" />
+    <NavigationProperty Name="suscripcions" Relationship="TrabajoMovilesModel.suscripcion_FK_Profe_Suscripcion" FromRole="profesor" ToRole="suscripcion" />
+  </EntityType>
+  <EntityType Name="profesor_cursogrado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_profesor" Type="Int32" />
+    <Property Name="id_cursogrado" Type="Int32" />
+    <NavigationProperty Name="cursogrado" Relationship="TrabajoMovilesModel.profesor_curso_FK_Curso" FromRole="profesor_cursogrado" ToRole="cursogrado" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.profesor_curso_FK_PRofesor" FromRole="profesor_cursogrado" ToRole="profesor" />
+  </EntityType>
+  <EntityType Name="profesor_horario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_profesor" Type="Int32" />
+    <Property Name="id_horario" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="horario" Relationship="TrabajoMovilesModel.profesor_horario_FK_Horario" FromRole="profesor_horario" ToRole="horario" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.profesor_horario_FK_Profes" FromRole="profesor_horario" ToRole="profesor" />
+    <NavigationProperty Name="tutorias" Relationship="TrabajoMovilesModel.FK_tutoria_profesor_horario" FromRole="profesor_horario" ToRole="tutoria" />
+  </EntityType>
+  <EntityType Name="profesor_zona">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_profe" Type="Int32" />
+    <Property Name="id_zona" Type="Int32" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.profesor_zona_FK_Profesor_Zona" FromRole="profesor_zona" ToRole="profesor" />
+    <NavigationProperty Name="zona" Relationship="TrabajoMovilesModel.profesor_zona_FK_ZONA_Profesor" FromRole="profesor_zona" ToRole="zona" />
+  </EntityType>
+  <EntityType Name="profesorfavorito">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id_profesor" Type="Int32" />
+    <Property Name="id_padre" Type="Int32" />
+    <NavigationProperty Name="padre" Relationship="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Padre" FromRole="profesorfavorito" ToRole="padre" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.profesorfavorito_FK_ProfeFav_Profe" FromRole="profesorfavorito" ToRole="profesor" />
+  </EntityType>
+  <EntityType Name="resumenclase">
+    <Key>
+      <PropertyRef Name="idresumen" />
+    </Key>
+    <Property Name="idresumen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcion" Type="String" MaxLength="80" Unicode="true" FixedLength="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="id_tutoria" Type="Int32" />
+    <NavigationProperty Name="tutoria" Relationship="TrabajoMovilesModel.FK_resumenclase_tutoria" FromRole="resumenclase" ToRole="tutoria" />
+  </EntityType>
+  <EntityType Name="servicio">
+    <Key>
+      <PropertyRef Name="idservicio" />
+    </Key>
+    <Property Name="idservicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="tipodepago" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="tutorias" Relationship="TrabajoMovilesModel.FK_tutoria_servicio" FromRole="servicio" ToRole="tutoria" />
+  </EntityType>
+  <EntityType Name="suscripcion">
+    <Key>
+      <PropertyRef Name="idsuscripcion" />
+    </Key>
+    <Property Name="idsuscripcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fechainicio" Type="DateTime" Precision="0" />
+    <Property Name="fechafin" Type="DateTime" Precision="0" />
+    <Property Name="id_profesor" Type="Int32" />
+    <NavigationProperty Name="profesor" Relationship="TrabajoMovilesModel.suscripcion_FK_Profe_Suscripcion" FromRole="suscripcion" ToRole="profesor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tutoria">
+    <Key>
+      <PropertyRef Name="idtutoria" />
+    </Key>
+    <Property Name="idtutoria" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hora" Type="Time" Precision="7" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="precio" Type="Decimal" Precision="8" Scale="2" />
+    <Property Name="comentario" Type="String" MaxLength="90" Unicode="true" FixedLength="false" />
+    <Property Name="calificacion" Type="Int32" />
+    <Property Name="id_padre" Type="Int32" />
+    <Property Name="estado" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="curso" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="id_horario" Type="Int32" />
+    <Property Name="id_servicio" Type="Int32" />
+    <Property Name="numerohoras" Type="Int32" />
+    <NavigationProperty Name="hijoes" Relationship="TrabajoMovilesModel.FK_hijo_tutoria" FromRole="tutoria" ToRole="hijo" />
+    <NavigationProperty Name="padre" Relationship="TrabajoMovilesModel.tutoria_FK_Tutoria_Padre" FromRole="tutoria" ToRole="padre" />
+    <NavigationProperty Name="profesor_horario" Relationship="TrabajoMovilesModel.FK_tutoria_profesor_horario" FromRole="tutoria" ToRole="profesor_horario" />
+    <NavigationProperty Name="resumenclases" Relationship="TrabajoMovilesModel.FK_resumenclase_tutoria" FromRole="tutoria" ToRole="resumenclase" />
+    <NavigationProperty Name="servicio" Relationship="TrabajoMovilesModel.FK_tutoria_servicio" FromRole="tutoria" ToRole="servicio" />
+  </EntityType>
+  <EntityType Name="zona">
+    <Key>
+      <PropertyRef Name="idzona" />
+    </Key>
+    <Property Name="idzona" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="zona1" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="profesor_zona" Relationship="TrabajoMovilesModel.profesor_zona_FK_ZONA_Profesor" FromRole="zona" ToRole="profesor_zona" />
+  </EntityType>
+  <Association Name="profesor_curso_FK_Curso">
+    <End Role="cursogrado" Type="TrabajoMovilesModel.cursogrado" Multiplicity="0..1" />
+    <End Role="profesor_cursogrado" Type="TrabajoMovilesModel.profesor_cursogrado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cursogrado">
+        <PropertyRef Name="idcursogrado" />
+      </Principal>
+      <Dependent Role="profesor_cursogrado">
+        <PropertyRef Name="id_cursogrado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hijo_padre">
+    <End Role="padre" Type="TrabajoMovilesModel.padre" Multiplicity="0..1" />
+    <End Role="hijo" Type="TrabajoMovilesModel.hijo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="padre">
+        <PropertyRef Name="idpadre" />
+      </Principal>
+      <Dependent Role="hijo">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_hijo_tutoria">
+    <End Role="tutoria" Type="TrabajoMovilesModel.tutoria" Multiplicity="0..1" />
+    <End Role="hijo" Type="TrabajoMovilesModel.hijo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tutoria">
+        <PropertyRef Name="idtutoria" />
+      </Principal>
+      <Dependent Role="hijo">
+        <PropertyRef Name="id_tutoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesor_horario_FK_Horario">
+    <End Role="horario" Type="TrabajoMovilesModel.horario" Multiplicity="0..1" />
+    <End Role="profesor_horario" Type="TrabajoMovilesModel.profesor_horario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="horario">
+        <PropertyRef Name="idhorario" />
+      </Principal>
+      <Dependent Role="profesor_horario">
+        <PropertyRef Name="id_horario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mensaje_FK_Mensaje_Padre">
+    <End Role="padre" Type="TrabajoMovilesModel.padre" Multiplicity="0..1" />
+    <End Role="mensaje" Type="TrabajoMovilesModel.mensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="padre">
+        <PropertyRef Name="idpadre" />
+      </Principal>
+      <Dependent Role="mensaje">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mensaje_FK_Mensaje_Profe">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="mensaje" Type="TrabajoMovilesModel.mensaje" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="mensaje">
+        <PropertyRef Name="id_profe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_profesor_metodopago">
+    <End Role="metodopago" Type="TrabajoMovilesModel.metodopago" Multiplicity="0..1" />
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="metodopago">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="profesor">
+        <PropertyRef Name="id_metodopago" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesorfavorito_FK_ProfeFav_Padre">
+    <End Role="padre" Type="TrabajoMovilesModel.padre" Multiplicity="0..1" />
+    <End Role="profesorfavorito" Type="TrabajoMovilesModel.profesorfavorito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="padre">
+        <PropertyRef Name="idpadre" />
+      </Principal>
+      <Dependent Role="profesorfavorito">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tutoria_FK_Tutoria_Padre">
+    <End Role="padre" Type="TrabajoMovilesModel.padre" Multiplicity="0..1" />
+    <End Role="tutoria" Type="TrabajoMovilesModel.tutoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="padre">
+        <PropertyRef Name="idpadre" />
+      </Principal>
+      <Dependent Role="tutoria">
+        <PropertyRef Name="id_padre" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesor_curso_FK_PRofesor">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="profesor_cursogrado" Type="TrabajoMovilesModel.profesor_cursogrado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="profesor_cursogrado">
+        <PropertyRef Name="id_profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesor_horario_FK_Profes">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="profesor_horario" Type="TrabajoMovilesModel.profesor_horario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="profesor_horario">
+        <PropertyRef Name="id_profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesor_zona_FK_Profesor_Zona">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="profesor_zona" Type="TrabajoMovilesModel.profesor_zona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="profesor_zona">
+        <PropertyRef Name="id_profe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesorfavorito_FK_ProfeFav_Profe">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="profesorfavorito" Type="TrabajoMovilesModel.profesorfavorito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="profesorfavorito">
+        <PropertyRef Name="id_profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="suscripcion_FK_Profe_Suscripcion">
+    <End Role="profesor" Type="TrabajoMovilesModel.profesor" Multiplicity="0..1" />
+    <End Role="suscripcion" Type="TrabajoMovilesModel.suscripcion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor">
+        <PropertyRef Name="idprofesor" />
+      </Principal>
+      <Dependent Role="suscripcion">
+        <PropertyRef Name="id_profesor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tutoria_profesor_horario">
+    <End Role="profesor_horario" Type="TrabajoMovilesModel.profesor_horario" Multiplicity="0..1" />
+    <End Role="tutoria" Type="TrabajoMovilesModel.tutoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="profesor_horario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="tutoria">
+        <PropertyRef Name="id_horario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="profesor_zona_FK_ZONA_Profesor">
+    <End Role="zona" Type="TrabajoMovilesModel.zona" Multiplicity="0..1" />
+    <End Role="profesor_zona" Type="TrabajoMovilesModel.profesor_zona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="zona">
+        <PropertyRef Name="idzona" />
+      </Principal>
+      <Dependent Role="profesor_zona">
+        <PropertyRef Name="id_zona" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_resumenclase_tutoria">
+    <End Role="tutoria" Type="TrabajoMovilesModel.tutoria" Multiplicity="0..1" />
+    <End Role="resumenclase" Type="TrabajoMovilesModel.resumenclase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tutoria">
+        <PropertyRef Name="idtutoria" />
+      </Principal>
+      <Dependent Role="resumenclase">
+        <PropertyRef Name="id_tutoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tutoria_servicio">
+    <End Role="servicio" Type="TrabajoMovilesModel.servicio" Multiplicity="0..1" />
+    <End Role="tutoria" Type="TrabajoMovilesModel.tutoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="servicio">
+        <PropertyRef Name="idservicio" />
+      </Principal>
+      <Dependent Role="tutoria">
+        <PropertyRef Name="id_servicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>

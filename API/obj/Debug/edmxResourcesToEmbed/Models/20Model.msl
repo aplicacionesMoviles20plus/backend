@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TrabajoMovilesModelStoreContainer" CdmEntityContainer="TrabajoMovilesEntities">
+    <EntitySetMapping Name="cursogradoes">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.cursogrado">
+        <MappingFragment StoreEntitySet="cursogrado">
+          <ScalarProperty Name="idcursogrado" ColumnName="idcursogrado" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="grado" ColumnName="grado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hijoes">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.hijo">
+        <MappingFragment StoreEntitySet="hijo">
+          <ScalarProperty Name="idhijo" ColumnName="idhijo" />
+          <ScalarProperty Name="id_tutoria" ColumnName="id_tutoria" />
+          <ScalarProperty Name="id_padre" ColumnName="id_padre" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="horarios">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.horario">
+        <MappingFragment StoreEntitySet="horario">
+          <ScalarProperty Name="idhorario" ColumnName="idhorario" />
+          <ScalarProperty Name="horainicio" ColumnName="horainicio" />
+          <ScalarProperty Name="horafin" ColumnName="horafin" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mensajes">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.mensaje">
+        <MappingFragment StoreEntitySet="mensaje">
+          <ScalarProperty Name="idmensaje" ColumnName="idmensaje" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="contenido" ColumnName="contenido" />
+          <ScalarProperty Name="id_padre" ColumnName="id_padre" />
+          <ScalarProperty Name="id_profe" ColumnName="id_profe" />
+          <ScalarProperty Name="remitente" ColumnName="remitente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="metodopagoes">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.metodopago">
+        <MappingFragment StoreEntitySet="metodopago">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="numerotarjeta" ColumnName="numerotarjeta" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cvv" ColumnName="cvv" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="padres">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.padre">
+        <MappingFragment StoreEntitySet="padre">
+          <ScalarProperty Name="idpadre" ColumnName="idpadre" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
+          <ScalarProperty Name="distrito" ColumnName="distrito" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="fotourl" ColumnName="fotourl" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesors">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.profesor">
+        <MappingFragment StoreEntitySet="profesor">
+          <ScalarProperty Name="idprofesor" ColumnName="idprofesor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="preciomin" ColumnName="preciomin" />
+          <ScalarProperty Name="preciomax" ColumnName="preciomax" />
+          <ScalarProperty Name="experiencia" ColumnName="experiencia" />
+          <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="antecedentes" ColumnName="antecedentes" />
+          <ScalarProperty Name="fotourl" ColumnName="fotourl" />
+          <ScalarProperty Name="id_metodopago" ColumnName="id_metodopago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesor_cursogrado">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.profesor_cursogrado">
+        <MappingFragment StoreEntitySet="profesor_cursogrado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="id_cursogrado" ColumnName="id_cursogrado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesor_horario">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.profesor_horario">
+        <MappingFragment StoreEntitySet="profesor_horario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesor_zona">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.profesor_zona">
+        <MappingFragment StoreEntitySet="profesor_zona">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_profe" ColumnName="id_profe" />
+          <ScalarProperty Name="id_zona" ColumnName="id_zona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="profesorfavoritoes">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.profesorfavorito">
+        <MappingFragment StoreEntitySet="profesorfavorito">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="id_padre" ColumnName="id_padre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="resumenclases">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.resumenclase">
+        <MappingFragment StoreEntitySet="resumenclase">
+          <ScalarProperty Name="idresumen" ColumnName="idresumen" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="id_tutoria" ColumnName="id_tutoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicios">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.servicio">
+        <MappingFragment StoreEntitySet="servicio">
+          <ScalarProperty Name="idservicio" ColumnName="idservicio" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipodepago" ColumnName="tipodepago" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="suscripcions">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.suscripcion">
+        <MappingFragment StoreEntitySet="suscripcion">
+          <ScalarProperty Name="idsuscripcion" ColumnName="idsuscripcion" />
+          <ScalarProperty Name="fechainicio" ColumnName="fechainicio" />
+          <ScalarProperty Name="fechafin" ColumnName="fechafin" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tutorias">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.tutoria">
+        <MappingFragment StoreEntitySet="tutoria">
+          <ScalarProperty Name="idtutoria" ColumnName="idtutoria" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="calificacion" ColumnName="calificacion" />
+          <ScalarProperty Name="id_padre" ColumnName="id_padre" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="curso" ColumnName="curso" />
+          <ScalarProperty Name="id_horario" ColumnName="id_horario" />
+          <ScalarProperty Name="id_servicio" ColumnName="id_servicio" />
+          <ScalarProperty Name="numerohoras" ColumnName="numerohoras" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="zonas">
+      <EntityTypeMapping TypeName="TrabajoMovilesModel.zona">
+        <MappingFragment StoreEntitySet="zona">
+          <ScalarProperty Name="idzona" ColumnName="idzona" />
+          <ScalarProperty Name="zona1" ColumnName="zona" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="TrabajoMovilesModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="TrabajoMovilesModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="TrabajoMovilesModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="TrabajoMovilesModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrabajoMovilesModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="TrabajoMovilesModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TrabajoMovilesModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="TrabajoMovilesModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="TrabajoMovilesModel.Store.sp_upgraddiagrams" />
+  </EntityContainerMapping>
+</Mapping>
