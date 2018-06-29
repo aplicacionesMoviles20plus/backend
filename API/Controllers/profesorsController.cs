@@ -176,7 +176,34 @@ namespace API.Controllers
                                              };
             return lista;
         }
+        //Get profesores ocn los que chateo
+        public IEnumerable<profesorApp> Getprofesors4(int idfather)
+        {
 
+            IEnumerable<profesorApp> lista = from i in db.profesors.Distinct()
+                                             join z in db.mensajes on i.idprofesor equals z.id_profe
+                                             where z.id_padre == idfather
+                                             select new profesorApp
+                                             {
+                                                 idprofesor = i.idprofesor,
+                                                 nombre = i.nombre,
+                                                 apellido = i.apellido,
+                                                 password = i.password,
+                                                 email = i.email,
+                                                 celular = i.celular,
+                                                 descripcion = i.descripcion,
+                                                 preciomax = i.preciomax,
+                                                 preciomin = i.preciomin,
+                                                 experiencia = i.experiencia,
+                                                 calificacion = i.calificacion,
+                                                 dni = i.dni,
+                                                 antecedentes = i.antecedentes,
+                                                 fotourl = i.fotourl,
+                                                 id_metodopago = i.id_metodopago
+                                             };
+
+            return lista;
+        }
         // GET api/profesors/5
         public profesorApp Getprofesor(int id)
         {

@@ -43,6 +43,21 @@ namespace API.Controllers
                                                  };
             return lista;
         }
+        public IEnumerable<resumenclaseApp> Getresumenclases(int idprofe)
+        {
+            IEnumerable<resumenclaseApp> lista = from i in db.resumenclases
+                                                 join z in db.tutorias on i.id_tutoria equals z.idtutoria
+                                                 join x in db.profesor_horario on z.id_horario equals x.id 
+                                                 where x.id_profesor==idprofe
+                                                 select new resumenclaseApp
+                                                 {
+                                                     idresumen = i.idresumen,
+                                                     id_tutoria = i.id_tutoria,
+                                                     descripcion = i.descripcion,
+                                                     fecha = i.fecha
+                                                 };
+            return lista;
+        }
 
         // GET api/resumenclases/5
         public resumenclaseApp Getresumenclase(int id)

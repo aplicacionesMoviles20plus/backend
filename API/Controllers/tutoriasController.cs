@@ -61,7 +61,29 @@ namespace API.Controllers
                                             };
             return lista;
         }
+        public IEnumerable<tutoriaApp> Gettutorias(int idprofe)
+        {
 
+            IEnumerable<tutoriaApp> lista = from i in db.tutorias
+                                            join z in db.profesor_horario on i.id_horario equals z.id_horario
+                                            where z.id_profesor == idprofe
+                                            select new tutoriaApp
+                                            {
+                                                idtutoria = i.idtutoria,
+                                                id_padre = i.id_padre,
+                                                id_servicio = i.id_servicio,
+                                                id_horario = i.id_horario,
+                                                hora = i.hora,
+                                                fecha = i.fecha,
+                                                precio = i.precio,
+                                                comentario = i.comentario,
+                                                calificacion = i.calificacion,
+                                                estado = i.estado,
+                                                curso = i.curso,
+                                                numerohoras = i.numerohoras
+                                            };
+            return lista;
+        }
         // GET api/tutorias/5
         public tutoriaApp Gettutoria(int id)
         {

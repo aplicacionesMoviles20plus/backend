@@ -76,15 +76,25 @@ namespace API.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
         }
-
+        private bool Existe(int id)
+        {
+            return db.profesor_horario.Count(e => e.id == id) > 0;
+        }
         // POST api/profesor_horario
         public HttpResponseMessage Postprofesor_horario(profesor_horario profesor_horario)
         {
             if (ModelState.IsValid)
             {
-                db.profesor_horario.Add(profesor_horario);
-                db.SaveChanges();
-
+                if (Existe(profesor_horario.id))
+                {
+                    db.Entry(profesor_horario).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    db.profesor_horario.Add(profesor_horario);
+                    db.SaveChanges();
+                }
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, profesor_horario);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = profesor_horario.id }));
                 return response;

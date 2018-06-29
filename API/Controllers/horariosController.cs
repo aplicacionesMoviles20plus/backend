@@ -46,7 +46,22 @@ namespace API.Controllers
 
             return lista;
         }
+        public IEnumerable<horarioApp> Gethorarios(int idprofe,string estado)
+        {
 
+            IEnumerable<horarioApp> lista = from i in db.horarios
+                                            join z in db.profesor_horario on i.idhorario equals z.id_horario
+                                            where (z.id_profesor == idprofe && z.estado.Equals(estado))
+                                            select new horarioApp
+                                            {
+                                                idhorario = i.idhorario,
+                                                horainicio = i.horainicio,
+                                                horafin = i.horafin,
+                                                dia = i.dia
+                                            };
+
+            return lista;
+        }
         // GET api/horarios/5
         public horarioApp Gethorario(int id)
         {

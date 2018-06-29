@@ -38,7 +38,29 @@ namespace API.Controllers
                                           };
             return lista;
         }
-
+        public IEnumerable<padreApp> Getpadres(int idprofe)
+        {
+                         
+           IEnumerable<padreApp> lista = from i in db.padres.Distinct()
+                                         join z in db.mensajes on i.idpadre equals z.id_padre
+                                         where z.id_profe==idprofe
+                                          select new padreApp
+                                          {
+                                              idpadre = i.idpadre,
+                                              nombre = i.nombre,
+                                              apellido = i.apellido,
+                                              password = i.password,
+                                              departamento = i.departamento,
+                                              email = i.email,
+                                              provincia = i.provincia,
+                                              distrito = i.distrito,
+                                              direccion = i.direccion,
+                                              celular = i.celular,
+                                              dni = i.dni,
+                                              fotourl = i.fotourl
+                                          };
+            return lista;
+        }
        
         // GET api/padres/5
         public padreApp Getpadre(int id)
@@ -85,6 +107,7 @@ namespace API.Controllers
 
             return padre.FirstOrDefault();
         }
+       
         // PUT api/padres/5
         public HttpResponseMessage Putpadre(int id, padre padre)
         {
