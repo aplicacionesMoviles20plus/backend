@@ -177,7 +177,7 @@ namespace API.Controllers
             return lista;
         }
         //Get profesores ocn los que chateo
-        public IEnumerable<profesorApp> Getprofesors4(int idfather)
+        public IEnumerable<profesorApp> Getprofesors6(int idfather)
         {
 
             IEnumerable<profesorApp> lista = from i in db.profesors.Distinct()

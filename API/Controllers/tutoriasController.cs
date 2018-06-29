@@ -61,7 +61,7 @@ namespace API.Controllers
                                             };
             return lista;
         }
-        public IEnumerable<tutoriaApp> Gettutorias(int idprofe)
+        public IEnumerable<tutoriaApp> Gettutorias2(int idprofe)
         {
 
             IEnumerable<tutoriaApp> lista = from i in db.tutorias

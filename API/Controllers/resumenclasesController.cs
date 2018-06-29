@@ -43,7 +43,7 @@ namespace API.Controllers
                                                  };
             return lista;
         }
-        public IEnumerable<resumenclaseApp> Getresumenclases(int idprofe)
+        public IEnumerable<resumenclaseApp> Getresumenclases2(int idprofe)
         {
             IEnumerable<resumenclaseApp> lista = from i in db.resumenclases
                                                  join z in db.tutorias on i.id_tutoria equals z.idtutoria
